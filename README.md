@@ -9,12 +9,15 @@ This repository contains the source code for our team's solution in the **MABe 2
 The goal of this project is to automate the detection of mouse social behaviors from pose-tracking data. Our approach focuses on handling heterogeneous data from multiple labs with varying frame rates (FPS) and recording setups.
 
 ## Key Technical Contributions
-* **FPS-Aware Feature Engineering:** * Automatically scales all time-related parameters (rolling windows, lags, EWM spans) based on the actual FPS of each video.
+* **FPS-Aware Feature Engineering:**
+    * Automatically scales all time-related parameters (rolling windows, lags, EWM spans) based on the actual FPS of each video.
     * Ensures physical consistency where a 1-second window always represents 1 second, regardless of whether the video is 30 or 60 FPS.
-* **Multi-Scale Spatial-Temporal Features:** * **Geometric:** Euclidean distances between body parts, body elongation, and relative orientations.
+* **Multi-Scale Spatial-Temporal Features:**
+    * **Geometric:** Euclidean distances between body parts, body elongation, and relative orientations.
     * **Kinematic:** Velocity, acceleration, and curvature calculated with FPS-scaled lags.
     * **Social/Interaction:** Approach speed, nose-to-nose distance, and leading/chasing indices.
-* **Ensemble Gradient Boosting:** * A robust ensemble of **LightGBM**, **XGBoost**, and **CatBoost**.
+* **Ensemble Gradient Boosting:**
+    * A robust ensemble of **LightGBM**, **XGBoost**, and **CatBoost**.
     * **Stratified Subset Sampling:** Trained on 1.5M representative frames to balance efficiency and accuracy.
 * **Post-Processing:** Automated thresholding and temporal smoothing to convert frame-level predictions into continuous behavioral events (start/stop frames).
 
